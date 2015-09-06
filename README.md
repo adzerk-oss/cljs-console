@@ -46,6 +46,9 @@ interpolated form or expression is delimited by a control character followed by
 ### Logging
 
 ```clojure
+;; clear the console log
+(clear)
+
 ;; print to the console
 (debug message)
 (info message)
@@ -88,12 +91,6 @@ interpolated form or expression is delimited by a control character followed by
 ;; inline inspection of values
 (spy-> form), (spy-> form message)
 (spy->> form), (spy->> message form)
-```
-
-### Misc
-
-```clojure
-(clear)
 ```
 
 ## Hacking
