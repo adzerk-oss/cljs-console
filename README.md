@@ -47,15 +47,13 @@ interpolated form or expression is delimited by a control character followed by
 ### Logging
 
 ```clojure
+;; print to the console
 (debug message)
 (info message)
 (warn message)
 (error message)
-```
 
-### Grouping
-
-```clojure
+;; group log messages
 (group+ message & body) ; expanded
 (group- message & body) ; collapsed
 ```
