@@ -2,8 +2,7 @@
 
 ClojureScript console logging macros.
 
-- No code is emitted for log commands that are below the log level specified
-  in the environment at compile time.
+- No code is emitted for commands that are below the env log level.
 - Groups are only emitted when their body is not elided.
 - Support for log message formatting via string interpolation.
 - ClojureScript forms are pretty-printed.
