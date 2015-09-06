@@ -12,7 +12,7 @@ ClojureScript console logging macros.
 
 [](dependency)
 ```clojure
-[adzerk/env "0.2.0"] ;; latest release
+[adzerk/cljs-console "0.1.0"] ;; latest release
 ```
 [](/dependency)
 
