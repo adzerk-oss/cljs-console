@@ -13,7 +13,7 @@ ClojureScript console logging macros.
 
 [](dependency)
 ```clojure
-[adzerk/cljs-console "0.1.0"] ;; latest release
+[adzerk/env "0.2.0"] ;; latest release
 ```
 [](/dependency)
 
@@ -46,35 +46,35 @@ interpolated form or expression is delimited by a control character followed by
 
 ### Logging
 
-- <samp><pre>(debug <em>message</em>)</pre></samp>
-- <samp><pre>(info <em>message</em>)</pre></samp>
-- <samp><pre>(warn <em>message</em>)</pre></samp>
-- <samp><pre>(error <em>message</em>)</pre></samp>
+<samp><pre>(debug <em>message</em>)</pre></samp>
+<samp><pre>(info <em>message</em>)</pre></samp>
+<samp><pre>(warn <em>message</em>)</pre></samp>
+<samp><pre>(error <em>message</em>)</pre></samp>
 
 ### Grouping
 
-- <samp><pre>(group+ <em>message</em> & <em>body</em>) <em>; expanded</em></pre></samp>
-- <samp><pre>(group- <em>message</em> & <em>body</em>) <em>; collapsed</em></pre></samp>
+<samp><pre>(group+ <em>message</em> & <em>body</em>) <em>; expanded</em></pre></samp>
+<samp><pre>(group- <em>message</em> & <em>body</em>) <em>; collapsed</em></pre></samp>
 
 ### Debug Log Level Only
 
-- <samp><pre>(debugger)</pre></samp>
-- <samp><pre>(assert <em>expression</em> <em>message</em>)</pre></samp>
-- <samp><pre>(count <em>label</em>)</pre></samp>
-- <samp><pre>(profile-start <em>label</em>)</pre></samp>
-- <samp><pre>(profile-end <em>label</em>)</pre></samp>
-- <samp><pre>(with-profile <em>label</em> & <em>body</em>)</pre></samp>
-- <samp><pre>(time-start <em>label</em>)</pre></samp>
-- <samp><pre>(time-end <em>label</em>)</pre></samp>
-- <samp><pre>(with-time <em>label</em> & <em>body</em>)</pre></samp>
-- <samp><pre>(timestamp), (log/timestamp <em>label</em>)</pre></samp>
-- <samp><pre>(trace <em>object</em> & <em>objects</em>)</pre></samp>
-- <samp><pre>(spy-> <em>form</em>), (log/spy-> <em>form</em> <em>message</em>)</pre></samp>
-- <samp><pre>(spy->> <em>form</em>), (log/spy->> <em>message</em> <em>form</em>)</pre></samp>
+<samp><pre>(debugger)</pre></samp>
+<samp><pre>(assert <em>expression</em> <em>message</em>)</pre></samp>
+<samp><pre>(count <em>label</em>)</pre></samp>
+<samp><pre>(profile-start <em>label</em>)</pre></samp>
+<samp><pre>(profile-end <em>label</em>)</pre></samp>
+<samp><pre>(with-profile <em>label</em> & <em>body</em>)</pre></samp>
+<samp><pre>(time-start <em>label</em>)</pre></samp>
+<samp><pre>(time-end <em>label</em>)</pre></samp>
+<samp><pre>(with-time <em>label</em> & <em>body</em>)</pre></samp>
+<samp><pre>(timestamp), (timestamp <em>label</em>)</pre></samp>
+<samp><pre>(trace <em>object</em> & <em>objects</em>)</pre></samp>
+<samp><pre>(spy-> <em>form</em>), (spy-> <em>form</em> <em>message</em>)</pre></samp>
+<samp><pre>(spy->> <em>form</em>), (spy->> <em>message</em> <em>form</em>)</pre></samp>
 
 ### Misc
 
-- <samp><pre>(log/clear)</pre></samp>
+<samp><pre>(clear)</pre></samp>
 
 ## Hacking
 
