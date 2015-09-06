@@ -46,35 +46,50 @@ interpolated form or expression is delimited by a control character followed by
 
 ### Logging
 
-<samp><pre>(debug <em>message</em>)</pre></samp>
-<samp><pre>(info <em>message</em>)</pre></samp>
-<samp><pre>(warn <em>message</em>)</pre></samp>
-<samp><pre>(error <em>message</em>)</pre></samp>
+```clojure
+(debug message)
+(info message)
+(warn message)
+(error message)
+```
 
 ### Grouping
 
-<samp><pre>(group+ <em>message</em> & <em>body</em>) <em>; expanded</em></pre></samp>
-<samp><pre>(group- <em>message</em> & <em>body</em>) <em>; collapsed</em></pre></samp>
+```clojure
+(group+ message & body) ; expanded
+(group- message & body) ; collapsed
+```
 
 ### Debug Log Level Only
 
-<samp><pre>(debugger)</pre></samp>
-<samp><pre>(assert <em>expression</em> <em>message</em>)</pre></samp>
-<samp><pre>(count <em>label</em>)</pre></samp>
-<samp><pre>(profile-start <em>label</em>)</pre></samp>
-<samp><pre>(profile-end <em>label</em>)</pre></samp>
-<samp><pre>(with-profile <em>label</em> & <em>body</em>)</pre></samp>
-<samp><pre>(time-start <em>label</em>)</pre></samp>
-<samp><pre>(time-end <em>label</em>)</pre></samp>
-<samp><pre>(with-time <em>label</em> & <em>body</em>)</pre></samp>
-<samp><pre>(timestamp), (timestamp <em>label</em>)</pre></samp>
-<samp><pre>(trace <em>object</em> & <em>objects</em>)</pre></samp>
-<samp><pre>(spy-> <em>form</em>), (spy-> <em>form</em> <em>message</em>)</pre></samp>
-<samp><pre>(spy->> <em>form</em>), (spy->> <em>message</em> <em>form</em>)</pre></samp>
+```clojure
+(debugger)
+
+(assert expression message)
+
+(count label)
+
+(profile-start label)
+(profile-end label)
+(with-profile label & body)
+
+(time-start label)
+(time-end label)
+(with-time label & body)
+
+(timestamp), (timestamp label)
+
+(trace object & objects)
+
+(spy-> form), (spy-> form message)
+(spy->> form), (spy->> message form)
+```
 
 ### Misc
 
-<samp><pre>(clear)</pre></samp>
+```clojure
+(clear)
+```
 
 ## Hacking
 
