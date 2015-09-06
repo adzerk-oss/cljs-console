@@ -12,7 +12,7 @@ ClojureScript console logging macros.
 
 [](dependency)
 ```clojure
-[adzerk/cljs-console "0.1.0"] ;; latest release
+[adzerk/env "0.2.0"] ;; latest release
 ```
 [](/dependency)
 
@@ -67,10 +67,10 @@ interpolated form or expression is delimited by a control character followed by
 (debugger)
 
 ;; log error if expression isn't truthy
-(assert expression message)
+(log-assert expression message)
 
 ;; count how many times it's called
-(count label)
+(log-count label)
 
 ;; engage js profiling engine
 (profile-start label)

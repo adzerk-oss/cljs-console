@@ -1,47 +1,50 @@
 (ns adzerk.cljs-console
-  (:refer-clojure :exclude [assert count])
   (:require
     [adzerk.env :as env]
     [adzerk.cljs-console.strint :refer [build-args]]))
 
-(env/def CLJS_LOG_LEVEL nil)
+(env/def ^:private CLJS_LOG_LEVEL nil)
 
-(def levels
+(def ^:private levels
   {"DEBUG" 1
    "INFO"  2
    "WARN"  3
    "ERROR" 4
    "NONE"  5})
 
-(defn env-level []
+;; helpers ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defn- env-level []
   (levels CLJS_LOG_LEVEL 1))
 
-(defn debugging? []
+(defn- debugging? []
   (<= (env-level) (levels "DEBUG")))
 
 (create-ns 'cljs.pprint)
 
-(defn emit-log [fn-name msg]
+(defn- emit-log [fn-name msg]
   (when (<= (env-level) (levels (.toUpperCase (name fn-name))))
     `(. js/console ~fn-name ~@(build-args msg))))
 
-(defn emit-group [fn-name msg body]
+(defn- emit-group [fn-name msg body]
   (when-let [body (seq (keep identity (map macroexpand body)))]
     `(do (. js/console ~fn-name ~@(build-args msg))
          ~@body
          (.groupEnd js/console))))
 
-(defmacro deflogfn [fn-name]
+(defmacro ^:private deflogfn [fn-name]
   `(defmacro ~fn-name [msg#]
      (emit-log '~fn-name msg#)))
 
-(defmacro defgroupfn [macro-name fn-name]
+(defmacro ^:private defgroupfn [macro-name fn-name]
   `(defmacro ~macro-name [msg# & body#]
      (emit-group '~fn-name msg# body#)))
 
-(defmacro defdebugfn [macro-name args body]
+(defmacro ^:private defdebugfn [macro-name args body]
   `(defmacro ~macro-name ~args
      ~(when (debugging?) body)))
+
+;; public api ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (deflogfn debug)
 (deflogfn info)
@@ -54,10 +57,10 @@
 (defdebugfn debugger []
   `(js/debugger))
 
-(defdebugfn assert [expr msg]
+(defdebugfn log-assert [expr msg]
   `(when-not ~expr (.error js/console ~@(build-args msg))))
 
-(defdebugfn count [label]
+(defdebugfn log-count [label]
   `(.count js/console ~label))
 
 (defdebugfn profile-start [label]
