@@ -63,24 +63,33 @@ interpolated form or expression is delimited by a control character followed by
 ### Debug Log Level Only
 
 ```clojure
+;; drop into the js debugger
 (debugger)
 
+;; log error if expression isn't truthy
 (assert expression message)
 
+;; count how many times it's called
 (count label)
 
+;; engage js profiling engine
 (profile-start label)
 (profile-end label)
 (with-profile label & body)
 
+;; record a time interval
 (time-start label)
 (time-end label)
 (with-time label & body)
 
-(timestamp), (timestamp label)
+;; mark the timeline
+(timestamp)
+(timestamp label)
 
+;; get a stack trace
 (trace object & objects)
 
+;; inline inspection of values
 (spy-> form), (spy-> form message)
 (spy->> form), (spy->> message form)
 ```
