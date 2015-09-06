@@ -83,8 +83,7 @@ interpolated form or expression is delimited by a control character followed by
 (with-time label & body)
 
 ;; mark the timeline
-(timestamp)
-(timestamp label)
+(timestamp), (timestamp label)
 
 ;; get a stack trace
 (trace object & objects)
